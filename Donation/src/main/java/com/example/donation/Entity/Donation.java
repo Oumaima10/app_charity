@@ -1,9 +1,8 @@
 package com.example.donation.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.donation.MODEL.Organization;
+import com.example.donation.MODEL.User;
+import jakarta.persistence.*;
 
 @Entity
 public class Donation {
@@ -11,11 +10,24 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Automatically generates a unique ID
     private Long id;
+  private Long userId;
 
     private String donor;  // Name of the donor
     private int amount; // Amount donated
+  @Transient
+  private Organization organisation;
+  @Transient
+  private User users;
 
 
+
+/*  @ManyToOne // Utilisez ManyToOne car plusieurs dons peuvent être faits par le même utilisateur
+  @JoinColumn(name = "idUser") // La clé étrangère pour lier Donation à User
+  private Users user;
+
+  @ManyToOne // Un don est lié à une organisation
+  @JoinColumn(name = "idOrg") // La clé étrangère pour lier Donation à Organization
+  private Organization organization;*/
     // Default constructor
     public Donation() {}
 

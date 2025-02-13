@@ -1,10 +1,7 @@
 package com.example.userms.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +20,12 @@ public class Users {
     private String nom;
     private String prenom;
     private String Email;
+/*
+    @OneToMany(mappedBy = "Donation")
+  private Collection<Donation> Donations;
+  private Long idOrg;
+  @Transient
+  private Organisation organization;
+*/
+
 }
